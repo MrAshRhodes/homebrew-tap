@@ -1,6 +1,6 @@
 cask "glint" do
-  version "1.2.0"
-  sha256 "a4d974402bf57b36b5cde04c40e3729690050e7e1cb7d96c76bb419a31ed967f"
+  version "1.2.1"
+  sha256 "db1269e16259d5f1fed97b1ea0ccc7fb9a7f8e6aa341c5b952e058717248996f"
 
   url "https://github.com/MrAshRhodes/glint/releases/download/v#{version}/Glint-#{version}.zip"
   name "Glint"
@@ -16,8 +16,8 @@ cask "glint" do
 
   app "Glint.app"
 
-  # Glint is signed ad-hoc rather than notarized, so Gatekeeper would refuse to open a quarantined
-  # copy. Clearing the quarantine flag keeps `brew install --cask` a one-step install.
+  # Glint is signed with its own certificate but not notarized, so Gatekeeper would refuse to open a
+  # quarantined copy. Clearing the quarantine flag keeps `brew install --cask` a one-step install.
   postflight_steps do
     run "/usr/bin/xattr",
         args:         ["-dr", "com.apple.quarantine", "{{appdir}}/Glint.app"],
@@ -31,10 +31,15 @@ cask "glint" do
   ]
 
   caveats <<~EOS
-    Glint is signed ad-hoc and is not notarized by Apple.
+    Glint is signed with its own certificate and is not notarized by Apple.
 
     Before the first capture, allow Glint under
       System Settings > Privacy & Security > Screen & System Audio Recording
     (called "Screen Recording" on macOS 14), then relaunch Glint.
+    Upgrades keep this permission.
+
+    Upgrading from Glint 1.2.0 or earlier? macOS needs the permission once more.
+    In Glint, choose Preferences > About > Re-authorize Screen Recording…,
+    allow Glint in System Settings, then relaunch Glint.
   EOS
 end
