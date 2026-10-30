@@ -1,6 +1,6 @@
 cask "barback" do
-  version "0.1.0"
-  sha256 "54c30a2714449ee2b4169ff3ca14a57d9aa824909a79bdf7178fd69d664b09dc"
+  version "0.2.0"
+  sha256 "1ee17ef93121666efdd349a1a759a3fdd453b53b9d2d11502d6303d03a07d0e2"
 
   url "https://github.com/MrAshRhodes/barback/releases/download/v#{version}/Barback-#{version}.zip"
   name "Barback"
