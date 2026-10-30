@@ -1,7 +1,10 @@
 # homebrew-tap
 
-Homebrew tap for [Glint](https://github.com/MrAshRhodes/glint), a macOS screenshot beautifier.
+Homebrew casks for MrAshRhodes' macOS apps.
 
-    brew install --cask mrashrhodes/tap/glint
+| App | Description | Install |
+| --- | --- | --- |
+| [Barback](https://github.com/MrAshRhodes/barback) | Fast, lightweight menu bar item hider | `brew install --cask mrashrhodes/tap/barback` |
+| [Glint](https://github.com/MrAshRhodes/glint) | Screenshot beautifier | `brew install --cask mrashrhodes/tap/glint` |
 
-The cask in this repository is updated by Glint's release workflow.
+Each cask is updated by its app's release workflow.
